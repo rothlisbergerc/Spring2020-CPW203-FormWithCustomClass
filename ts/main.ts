@@ -126,13 +126,13 @@ function isAllDataValid(){
     let priceValue = parseFloat(price);
     if(price == "" || isNaN(priceValue)){
         isValid = false;
-        addErrorMessage("Price is required and must be a number");
+        addErrorMessage("Price is required and must be a number";
     }
 
     let rating = (<HTMLOptionElement>getById("rating")).value;
     if(rating == ""){
         isValid = false;
-        addErrorMessage("You must choose a rating");
+        addErrorMsgWithCustomClass("You must choose a rating!", "rating-error");
     }
 
     return isValid;
@@ -142,6 +142,13 @@ function addErrorMessage(errMsg:string, ) {
     let errSummary = getById("validation-summary");
     let errItem = document.createElement("li");
     errItem.innerText = errMsg;
+    errSummary.appendChild(errItem);
+}
 
+function addErrorMsgWithCustomClass(errMsg:string, cssClass:string){
+    let errSummary = getById("validation-summary");
+    let errItem = document.createElement("li");
+    errItem.classList.add(cssClass);
+    errItem.innerText = errMsg;
     errSummary.appendChild(errItem);
 }

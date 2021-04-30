@@ -11,3 +11,13 @@ label{
 input[type=checkbox], input[type=button]{
     margin-left: 50%;
 }
+
+#validation-summary{
+    color: red;
+    list-style-type: square;
+}
+
+.rating-error{
+    font-style: italic;
+    font-weight: bolder;
+}

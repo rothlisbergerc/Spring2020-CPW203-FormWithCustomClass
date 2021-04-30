@@ -69,13 +69,20 @@ function isAllDataValid() {
     var rating = getById("rating").value;
     if (rating == "") {
         isValid = false;
-        addErrorMessage("You must choose a rating");
+        addErrorMsgWithCustomClass("You must choose a rating!", "rating-error");
     }
     return isValid;
 }
 function addErrorMessage(errMsg) {
     var errSummary = getById("validation-summary");
     var errItem = document.createElement("li");
+    errItem.innerText = errMsg;
+    errSummary.appendChild(errItem);
+}
+function addErrorMsgWithCustomClass(errMsg, cssClass) {
+    var errSummary = getById("validation-summary");
+    var errItem = document.createElement("li");
+    errItem.classList.add(cssClass);
     errItem.innerText = errMsg;
     errSummary.appendChild(errItem);
 }
