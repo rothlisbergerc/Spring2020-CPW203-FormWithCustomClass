@@ -28,7 +28,36 @@ function addVideoGame(){
 }
 
 function displayGame(myGame:VideoGame):void{ // passes in videogame object type. Returns void.
-    // TODO: Display video game below the form
+    // Display video game below the form
+    let displayDiv = getById("display");
+
+    // Create <h2> with game title
+    let gameHeading = document.createElement("h2"); // creates an h2 element in memory
+    gameHeading.innerText = myGame.title;
+
+    // Create paragraph with game details
+    let gameInfo = document.createElement("p");
+    let gameMediumDisplay = "";
+
+    if(myGame.isDigitalOnly){
+        gameMediumDisplay = "This is a digital only game.";
+    }
+    else{
+        gameMediumDisplay = "You can come buy a physical copy!"
+    }
+    // gameInfo.innerText = myGame.title + " Has a rating of " +
+    //                     myGame.rating + ". It costs " +
+    //                     myGame.price + ". It is " + 
+    //                     notDigitalDisplay + " digital only.";
+
+    // Alternatively, using template literals:
+    gameInfo.innerText = `${myGame.title} has a rating of ${myGame.rating}. It costs $${myGame.price.toFixed(2)}. ${gameMediumDisplay}`
+
+    // Add <h2> in the <div id="display">
+    displayDiv.appendChild(gameHeading);
+    // Add <p> game info
+    displayDiv.appendChild(gameInfo);
+
 }
 
 function getById(id:string){
