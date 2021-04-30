@@ -66,6 +66,11 @@ function isAllDataValid() {
         isValid = false;
         addErrorMessage("Price is required and must be a number");
     }
+    var description = getInputById("description").value;
+    if (description == "") {
+        isValid = false;
+        addErrorMessage("Description is required");
+    }
     var rating = getById("rating").value;
     if (rating == "") {
         isValid = false;

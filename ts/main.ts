@@ -129,6 +129,12 @@ function isAllDataValid(){
         addErrorMessage("Price is required and must be a number";
     }
 
+    let description = getInputById("description").value;
+    if(description == ""){
+        isValid = false;
+        addErrorMessage("Description is required");
+    }
+
     let rating = (<HTMLOptionElement>getById("rating")).value;
     if(rating == ""){
         isValid = false;
