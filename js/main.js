@@ -31,7 +31,7 @@ function displayGame(myGame) {
     else {
         gameMediumDisplay = "You can come buy a physical copy!";
     }
-    gameInfo.innerText = myGame.title + " has a rating of " + myGame.rating + ". It costs $" + myGame.price.toFixed(2) + ". " + gameMediumDisplay;
+    gameInfo.innerText = myGame.title + " is about " + myGame.description + " and has a rating of " + myGame.rating + ". It costs $" + myGame.price.toFixed(2) + ". " + gameMediumDisplay;
     displayDiv.appendChild(gameHeading);
     displayDiv.appendChild(gameInfo);
 }
@@ -48,6 +48,8 @@ function getVideoGame() {
     game.rating = ratingInput.value;
     var digitalOnly = getById("online");
     game.isDigitalOnly = digitalOnly.checked;
+    var descriptionInput = getById("description");
+    game.description = descriptionInput.value;
     return game;
 }
 function getInputById(id) {

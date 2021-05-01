@@ -4,13 +4,8 @@ class VideoGame{
     price:number;
     rating:string;
     isDigitalOnly:boolean;
+    description:string;
 }
-
-// test code:
-// let myGame = new VideoGame();
-// myGame.title = "Mario";
-// myGame.rating = "E";
-// myGame.isDigitalOnly = true;
 
 window.onload = function(){
     let addBtn = 
@@ -54,13 +49,8 @@ function displayGame(myGame:VideoGame):void{ // passes in videogame object type.
     else{
         gameMediumDisplay = "You can come buy a physical copy!"
     }
-    // gameInfo.innerText = myGame.title + " Has a rating of " +
-    //                     myGame.rating + ". It costs " +
-    //                     myGame.price + ". It is " + 
-    //                     notDigitalDisplay + " digital only.";
 
-    // Alternatively, using template literals:
-    gameInfo.innerText = `${myGame.title} has a rating of ${myGame.rating}. It costs $${myGame.price.toFixed(2)}. ${gameMediumDisplay}`
+    gameInfo.innerText = `${myGame.title} is about ${myGame.description} and has a rating of ${myGame.rating}. It costs $${myGame.price.toFixed(2)}. ${gameMediumDisplay}`
 
     // Add <h2> in the <div id="display">
     displayDiv.appendChild(gameHeading);
@@ -97,15 +87,9 @@ function getVideoGame():VideoGame{ // Returns videogame object
 
     let digitalOnly = <HTMLInputElement>getById("online");    // get checkbox option
     game.isDigitalOnly = digitalOnly.checked;
-    // alternatively:
-    // if(digitalOnly.checked){
-    //     game.isDigitalOnly = true;
-    // }
-    // else{
-    //     game.isDigitalOnly = false;
-    // }    
 
-    //Return game:
+    let descriptionInput = <HTMLInputElement>getById("description"); 
+    game.description = descriptionInput.value;
     return game;
 }
 
@@ -126,7 +110,7 @@ function isAllDataValid(){
     let priceValue = parseFloat(price);
     if(price == "" || isNaN(priceValue)){
         isValid = false;
-        addErrorMessage("Price is required and must be a number";
+        addErrorMessage("Price is required and must be a number");
     }
 
     let description = getInputById("description").value;

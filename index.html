@@ -8,15 +8,9 @@
     <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
-    <h1>Add Video Game</h1>
-
-    <div>
-        <ul id="validation-summary">
-            
-        </ul>
-    </div>
 
     <form>
+        <h1>Add Video Game</h1>
         <label for="title">Title: </label>
         <input id = "title" type="text">
         <br>
@@ -32,21 +26,27 @@
         <label for="rating">Rating: </label>        
         <select id="rating">  <!-- drop down box -->
             <option value="">Please choose a rating</option>
-            <option >E - Everyone</option>
-            <option>T - Teen</option>
-            <option>M - Mature</option>
+            <option >E for Everyone</option>
+            <option>T for Teen</option>
+            <option>M for Mature</option>
         </select>
         <br>
 
-        <input type="checkbox" id="online"> <!--Checkbox-->
         <label for="online">Online Only?</label>
+        <input type="checkbox" id="online"> <!--Checkbox-->        
         <br>
 
         <input type="button" value="Add New Video Game">        
-    </form>
 
-    <div id="display">        
-    </div>
+        <div>
+            <ul id="validation-summary">
+                
+            </ul>
+        </div>
+
+        <div id="display">        
+        </div>
+    </form>
 
     <script src="/js/main.js"></script>
 </body>
